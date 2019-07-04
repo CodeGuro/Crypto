@@ -220,10 +220,10 @@ def twistEdSign2(gen_point, priv, hash, a, d, p, n):
     # The client has full disclosure on constructing 'h' due to the given parameters {P, R, z}
     # This yields the equation sG = rG + hpG, where rG = R and pG = P
     # Note: this means 'p' must be kept entirely secret, which it is due to the elliptic curve discrete logarithm problem
-    # To keep the signature rigid, we make h = hash(hash(p)+bytes(R)+bytes(P)). This is a hard problem for someone trying to make a bogus signature
-    # because the malicious entity would need to know private key (p) in order to calculate a bogus h', r'
-    # via modular inverse and use the equation v' = h*v*inv(v)*bogus_v to a malicious signature: s'G = u'G + hv'G = Q' = R' + hP'
-    # That (P') is essentially the ECDLP due to hP = h(vG). Ha Ha! You~ Can't~ Get~ it~! Na na na na na~!
+    # To keep the signature rigid, we make h = hash(hash(message)+bytes(R)+bytes(P)). This is a hard problem for someone trying to make a bogus signature
+    # because the malicious entity would need to know private key (p) in order to calculate a bogus r', s'
+    # via modular inverse and use the equation s'G = r'G + h'P
+    # That (h'P) is essentially the ECDLP due to hP = h(pG)
 
 
     P = twistEdPointMultiply(gen_point, priv, a, d, p)
