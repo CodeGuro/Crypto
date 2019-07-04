@@ -1,3 +1,4 @@
+# Copyright (C) CodeGuro
 # from pyschoof import reduced_computation_schoof
 
 

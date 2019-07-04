@@ -1,4 +1,5 @@
 # library to aid in the math of twisted edwards curves
+# Copyright (C) CodeGuro
 import random
 from _sha3 import sha3_512
 
